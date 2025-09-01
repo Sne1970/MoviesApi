@@ -58,15 +58,5 @@ public class MovieApiController {
         return ResponseEntity.status(HttpStatus.NO_CONTENT).build();
     }
 
-    //1.Take genre and year as input parameter variable.
-    //1.check existence.
-    @GetMapping("/search/{genre}/{year}")
-    public ResponseEntity<MovieApi> fetchData(@PathVariable String genre, @PathVariable Year year, @PathVariable Long id){
 
-        MovieApi fetchdata = movieDB.get(id);
-        if(fetchdata.getGenre().equalsIgnoreCase(genre) && fetchdata.getYear().isBefore(year)){
-            return ResponseEntity.status(HttpStatus.FOUND).build();
-        }
-        return ResponseEntity.status(HttpStatus.NOT_FOUND).build();
-    }
 }
